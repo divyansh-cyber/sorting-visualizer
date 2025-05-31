@@ -74,11 +74,6 @@ The output will be in the `dist/` folder.
 
 ---
 
-## 🙏 Credits
-- Inspired by [VisuAlgo](https://visualgo.net/en/sorting) and other open-source visualizers.
-- Built with ❤️ by [Your Name].
-
----
 
 ## 📝 License
 This project is open source and available under the [MIT License](LICENSE).
