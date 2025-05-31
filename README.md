@@ -2,7 +2,6 @@
 
 A beautiful, interactive sorting algorithm visualizer built with **React**, **Vite**, and **Tailwind CSS**. Compare and learn how different sorting algorithms work through animated, side-by-side visualizations.
 
-![screenshot](./screenshot.png)
 
 ---
 
