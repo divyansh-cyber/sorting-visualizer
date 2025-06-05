@@ -1,19 +1,18 @@
 import { useState } from 'react';
 import SortingPanel from './SortingPanel';
 import {
-  bubbleSort,
-  selectionSort,
-  insertionSort,
-  quickSort,
-  mergeSort,
+  bubbleSort,selectionSort,insertionSort,quickSort,mergeSort,heapSort,cocktailSort, shellSort
 } from '../utils/sortingAlgorithms';
 
 const ALGORITHMS = [
   { name: 'Bubble Sort', fn: bubbleSort, complexity: 'O(n²)' },
   { name: 'Selection Sort', fn: selectionSort, complexity: 'O(n²)' },
   { name: 'Insertion Sort', fn: insertionSort, complexity: 'O(n²)' },
+  { name: 'Cocktail Sort', fn: cocktailSort, complexity: 'O(n²)' },
   { name: 'Quick Sort', fn: quickSort, complexity: 'O(n log n)' },
   { name: 'Merge Sort', fn: mergeSort, complexity: 'O(n log n)' },
+  { name: 'Heap Sort', fn: heapSort, complexity: 'O(n log n)' },
+  { name: 'Shell Sort', fn: shellSort, complexity: '~O(n log n)' },
 ];
 
 const SortingVisualizer = () => {
@@ -36,25 +35,17 @@ const SortingVisualizer = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      {/* Blurred SVG background accent */}
-      <svg
-        className="absolute -z-10 left-1/2 top-0 -translate-x-1/2 blur-2xl opacity-60 select-none pointer-events-none"
-        width="1200" height="700" viewBox="0 0 1200 700" fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ filter: 'blur(80px)' }}
-      >
-        <ellipse cx="300" cy="200" rx="300" ry="200" fill="#60a5fa" />
-        <ellipse cx="900" cy="500" rx="250" ry="180" fill="#a78bfa" />
-        <ellipse cx="700" cy="100" rx="180" ry="120" fill="#f472b6" />
-      </svg>
+    <div className="relative min-h-screen">
+
       {/* Main gradient background */}
       <div className="absolute inset-0 -z-20 bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-all duration-300" />
-      <div className="relative max-w-7xl mx-auto py-4 px-2 sm:px-4 md:px-8 flex flex-col items-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white text-center mb-8 drop-shadow-lg tracking-tight leading-tight">
+      <div className="relative max-w-7xl mx-auto py-4 flex flex-col items-center">
+        <h1 className="text-4xl py-8 sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white text-center 
+         drop-shadow-lg tracking-tight leading-tight mx-auto flex items-center justiify-center">
           Sorting Visualizer
         </h1>
-        <div className="flex flex-wrap gap-4 justify-center mb-8 items-center bg-white/80 dark:bg-gray-900 rounded-xl shadow p-4 w-full max-w-2xl mx-auto">
+        <div className="flex flex-wrap gap-4 justify-center mb-8 items-center bg-white/80 dark:bg-gray-900
+         rounded-xl shadow p-4 w-full max-w-2xl mx-auto">
           <button
             onClick={handleGenerate}
             className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded shadow transition text-base sm:text-lg"
@@ -86,9 +77,10 @@ const SortingVisualizer = () => {
             <span>{size}</span>
           </div>
         </div>
-        <div className="flex flex-row gap-4 sm:gap-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100 w-full justify-center">
+        <div className="flex flex-wrap flex-row gap-4 sm:gap-6 overflow-x-hidden pb-4 scrollbar-thin 
+        scrollbar-thumb-blue-400 scrollbar-track-blue-100 w-fit justify-center">
           {ALGORITHMS.map(({ name, fn, complexity }) => (
-            <div key={name} className="flex-1 min-w-[90vw] sm:min-w-[320px] max-w-xs flex justify-center">
+            <div key={name} className="flex justify-center" style={{minWidth: `${array.length*12 +40}px`}}>
               <SortingPanel
                 algorithmName={name}
                 sortFunction={fn}
