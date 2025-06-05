@@ -8,11 +8,9 @@ const ALGORITHMS = [
   { name: 'Bubble Sort', fn: bubbleSort, complexity: 'O(n²)' },
   { name: 'Selection Sort', fn: selectionSort, complexity: 'O(n²)' },
   { name: 'Insertion Sort', fn: insertionSort, complexity: 'O(n²)' },
-  { name: 'Cocktail Sort', fn: cocktailSort, complexity: 'O(n²)' },
   { name: 'Quick Sort', fn: quickSort, complexity: 'O(n log n)' },
   { name: 'Merge Sort', fn: mergeSort, complexity: 'O(n log n)' },
   { name: 'Heap Sort', fn: heapSort, complexity: 'O(n log n)' },
-  { name: 'Shell Sort', fn: shellSort, complexity: '~O(n log n)' },
 ];
 
 const SortingVisualizer = () => {
