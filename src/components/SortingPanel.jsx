@@ -87,7 +87,7 @@ const SortingPanel = ({
   const maxValue = Math.max(...visualArray, 1);
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800 rounded-2xl shadow-xl p-4 sm:p-6 flex flex-col items-center w-full max-w-md mx-auto transition-all duration-300">
+    <div className="bg-white/90 dark:bg-gray-800 rounded-2xl shadow-xl p-4 sm:p-6 flex flex-col items-center w-full mx-auto transition-all duration-300">
       <div className="flex flex-col items-center justify-center gap-1 mb-4 w-full">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 dark:text-white tracking-wide text-center drop-shadow mb-1">
           {algorithmName}
@@ -99,28 +99,30 @@ const SortingPanel = ({
           </span>
         </div>
       </div>
-      <div className="relative w-full flex flex-col justify-center border border-gray-200 dark:border-gray-700 rounded-lg bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-700 h-[340px] min-h-[340px] max-h-[340px] overflow-y-auto mb-4 transition-all duration-300 py-2">
+      <div className="relative w-full flex flex-row items-end justify-center border border-gray-200
+       dark:border-gray-700 rounded-lg bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900
+      dark:to-gray-700 min-h-[380px] overflow-x-auto mb-4 transition-all duration-300 px-2 py-4">
         {visualArray.map((value, idx) => (
-          <div
-            key={idx}
-            className={getBarColor(idx) + " flex items-center rounded-r-sm mb-1 last:mb-0 transition-all duration-100"}
-            style={{
-              width: `${(value / maxValue) * 95}%`,
-              height: '18px',
-              minWidth: '10px',
-              background: comparedIndices.includes(idx)
-                ? 'linear-gradient(90deg, #ec4899 60%, #f472b6 100%)'
-                : sortedIndices.includes(idx)
-                ? 'linear-gradient(90deg, #34d399 60%, #6ee7b7 100%)'
-                : 'linear-gradient(90deg, #3b82f6 60%, #60a5fa 100%)',
-            }}
-          >
-            <span className="ml-2 text-xs font-bold text-gray-900 dark:text-white select-none">
+          <div key={idx} className="flex flex-col justify-end items-center mr-1 text-center h-full last:mr-0">
+            <div
+              className={getBarColor(idx) + " w-[14px] rounded-t-sm transition-all duration-100"}
+              style={{
+                height: `${(value / maxValue) * 100}%`,
+                width: '10px',
+                background: comparedIndices.includes(idx)
+                  ? 'linear-gradient(to top, #ec4899 60%, #f472b6 100%)'
+                  : sortedIndices.includes(idx)
+                  ? 'linear-gradient(to top, #34d399 60%, #6ee7b7 100%)'
+                  : 'linear-gradient(to top, #3b82f6 60%, #60a5fa 100%)',
+              }}>
+              </div>
+            <span className="mt-1 text-[10px] font-bold text-gray-900 dark:text-white select-none">
               {value}
             </span>
           </div>
         ))}
       </div>
+
       <div className="flex gap-3 mt-2 w-full justify-center">
         <button
           onClick={handlePause}
