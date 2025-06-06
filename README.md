@@ -2,11 +2,13 @@
 
 A beautiful, interactive sorting algorithm visualizer built with **React**, **Vite**, and **Tailwind CSS**. Compare and learn how different sorting algorithms work through animated, side-by-side visualizations.
 
+## 🌐 Live Demo
+Check out the live demo: [Sorting Visualizer](https://sorting-visualizer-wine-nine.vercel.app/)
 
 ---
 
 ## ✨ Features
-- **Visualize**: Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, and Merge Sort
+- **Visualize**: Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, Merge Sort, and Heap Sort
 - **Side-by-side comparison**: See all algorithms animate on the same array
 - **Interactive controls**: Adjust array size and animation speed
 - **Pause, resume, and reset**: Control each algorithm's animation
@@ -62,6 +64,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to view the 
 | Insertion Sort   | O(n²)          |
 | Quick Sort       | O(n log n)     |
 | Merge Sort       | O(n log n)     |
+| Heap Sort        | O(n log n)     |
 
 ---
 
@@ -69,10 +72,3 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to view the 
 ```bash
 npm run build
 ```
-The output will be in the `dist/` folder.
-
----
-
-
-## 📝 License
-This project is open source and available under the [MIT License](LICENSE).
